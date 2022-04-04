@@ -1,0 +1,12 @@
+body .color-primary, body.light .color-primary
+    color: $color_primary
+body .color-opacity
+    color: rgba($white_1, .5)
+    transition: all 200ms ease-in
+    &:hover
+        color: $white_1
+
+body.light .color-opacity
+    color: rgba($black_2, .7)
+    &:hover
+        color: $black_2

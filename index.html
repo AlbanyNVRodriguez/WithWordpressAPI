@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="shortcut icon" href="img/favicon.svg" type="image/x-icon">
+    <link rel="apple-touch-icon" href="img/favicon.svg" type="image/x-icon">
+    <title>WithWordPress</title>
+    <meta name="description" content="">
+    <!-- Preloader -->
+    <link rel="preloader" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400&display=swap" rel="stylesheet">
+    <!-- Open Graph -->
+    <meta property="og:title" content="WithWordPressAPI"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:url" content="https://withwordpressapi.netlify.app/"/>
+    <meta property="og:image" content="https://withwordpressapi.netlify.app/img/preview.png"/>
+</head>
+<body class="">
+    <header class="header">
+        <h1 class="header-logo">With<span class="color-primary">WordPress</span></h1>
+        <div class="header-theme"></div>
+    </header>
+    <aside class="aside">
+        <h2 class="aside-title">Check the <span class="color-primary">information</span> of your favorite pages</h2>
+        <div class="aside-search">
+            <input type="text" name="search-site" id="search-site" placeholder="https://example.com">
+            <select  name="search-endpoint" id="search-endpoint">
+                <option value="">-- Select type of petition --</option>
+                <option value="posts">Post</option>
+                <option value="pages">Pages</option>
+                <option value="categories">Categories</option>
+                <option value="tags">Tags</option>
+            </select>
+        </div>
+        <button class="aside-search-btn">Search</button>
+    </aside>
+    <main class="main">
+        <!-- <p class="main-title color-opacity">All Categories</p>
+        <section class="main-content main-content-categories">
+            <a href="#" class="link-category" data-petition>Activismo</a>
+            <a href="#" class="link-category" data-petition>Sexualidad</a>
+            <a href="#" class="link-category" data-petition>Vida</a>
+        </section>
+        <img src="img/loader.svg" alt="loading..."> -->
+    </main>
+    <template id="post-template">
+        <article class="post">
+            <picture>
+                <img class="post-img">
+                <h2 class="post-title"></h2>
+            </picture>
+            <section class="post-author">
+                <div class="author">
+                    <img class="author-img">
+                    <a class="author-name color-opacity" target="_blank"></a>
+                </div>
+                <small class="author-date color-opacity"></small>
+            </section>
+            <div class="post-excerpt"></div>
+            <div class="post-categories">
+                <p class="color-primary">Categories: </p>
+            </div>
+            <div class="post-tags">
+                <p class="color-primary">Tags: </p>
+            </div>
+            <a class="post-link" target="_blank">See original post</a>
+            <details class="post-details">
+                <summary>See more about the post</summary>
+                <article></article>
+            </details>
+        </article>
+    </template>
+    <footer class="footer">
+        <p>
+            All Right Reserved | <a href="#" target="_blank" class="color-primary">Albany Vergel</a> - <a href="#" target="_blank" class="color-primary">GitHub</a>
+        </p>
+    </footer>
+    <script src="js/main.js" type="module"></script>
+</body>
+</html>

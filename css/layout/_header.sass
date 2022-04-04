@@ -1,0 +1,27 @@
+.header
+    text-align: center
+    width: 100%
+    font-size: 1.5rem
+    +flex(space-between, center, row nowrap)
+    box-shadow: 0px 1px 3px $color_shadow
+    .header-logo
+        font-weight: lighter
+        cursor: pointer
+    .header-theme
+        position: relative
+        width: 6rem
+        height: 2rem
+        border-radius: 20px 
+    .header-theme::after
+        position: absolute
+        top: -0.25rem
+        left: 0
+        content: ""
+        width: 2.5rem
+        height: 2.5rem
+        border-radius: 50%
+        background: $color_secondary
+        transition: all 200ms ease
+        cursor: pointer
+    .header-theme.light::after
+        left: calc(100% - 2.5rem)

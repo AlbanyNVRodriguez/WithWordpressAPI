@@ -1,0 +1,58 @@
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+html
+    font-size: 62.5%
+    font-family: 'Open Sans', sans-serif
+body
+    width: 100%
+    min-height: 100vh
+    +flex(space-between, center, column nowrap)
+    row-gap: 4rem
+    .header, aside, .main-section, .main .post
+        padding: 2rem
+a
+    text-decoration: none
+    display: block
+h2
+    font-size: 1.6rem
+    user-select: none
+// --------------------------------------------------------
+// THEME DARK
+body
+    color: $white_1
+    background: $black_2
+    a, #search-site
+        color: $white_1
+    .header,
+    .aside,
+    .main .post, .main-section, .main-content-categories .link-category,
+    .footer
+        background: $black_1
+    .header .header-theme,
+    #search-endpoint option
+        background: $black_2
+    .aside #search-endpoint
+        color: $white_1
+    .main .post-details
+        background: $black_2
+// THEME LIGHT
+body.light
+    color: $black_2
+    background: $white_2
+    a, #search-site
+        color: $black_2
+    .header,
+    .aside,
+    .main .post, .main-section, .main-content-categories .link-category,
+    .footer
+        background: $white_1
+    .header .header-theme,
+    #search-endpoint option
+        background: $white_2
+    .aside #search-endpoint
+        color: $black_2
+    .main .post-details
+        background: $white_2

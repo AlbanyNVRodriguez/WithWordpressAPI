@@ -1,0 +1,31 @@
+.aside
+    width: 100%
+    max-width: 500px
+    +flex(center, center, column nowrap)
+    row-gap: 2rem
+    +shadow(1px)
+
+.aside-search
+    +flex(center, center, column nowrap)
+    row-gap: 1rem
+    #search-site, #search-endpoint
+        background: none
+        border-radius: 20px
+        border: solid $color_primary 1px
+    #search-endpoint
+        appearance: none
+        cursor: pointer
+        &::-ms-expand
+            display: none
+#search-site, #search-endpoint, .aside-search-btn
+    color: $white_1
+    width: 32rem
+    padding: 0.75rem 0rem
+    outline: none
+    text-align: center
+
+.aside-search-btn
+    border: none
+    border-radius: 20px
+    background: linear-gradient(90.45deg, #BD0945 0%, #0D0225 100%)
+    cursor: pointer
