@@ -37,7 +37,6 @@ function sectionEndponits(){
     let $text = `
     <div class="section-text">
         <p class="color-opacity">Post</p>
-        <p class="color-opacity">Pages</p>
         <p class="color-opacity">Categories</p>
         <p class="color-opacity">Tags</p>
     </div>

@@ -4,10 +4,9 @@ import { getFetch, addTitleInMain, addContentInMain, addLoaderInMain } from "../
 async function allTags(url){
     document.querySelector(".main").innerHTML = "";
     addTitleInMain("All Tags");
-    addContentInMain("categories");
+    addContentInMain("tags");
     addLoaderInMain();
     let tags = await getFetch(`${url}/wp-json/wp/v2/tags`);
-    console.log(tags)
     document.querySelector(".loader").style.display = "none";
     renderTagsInContent(tags);
 }
@@ -25,8 +24,8 @@ function createTag(tag){
     let $a = document.createElement("a");
     $a.setAttribute("class", "link-tag");
     $a.setAttribute("target", "_blank");
-    $a.textContent = tag.name;
-    $a.href = document.getElementById("search-site").value;
+    $a.textContent = tag.slug;
+    $a.href = tag.link;
     return $a;
 }
 export{

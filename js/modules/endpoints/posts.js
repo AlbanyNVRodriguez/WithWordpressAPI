@@ -10,7 +10,6 @@ async function allPosts(url){
     let site = await getFetch(`${url}/wp-json`);
     let posts = await getFetch(`${url}/wp-json/wp/v2/posts?_embed&${page}&per_page=8`);
     document.querySelector(".loader").style.display = "none";
-    console.log(site)
     renderPostsInContent(posts);
     // loadMorePostInContentAtEndOfScroll(page);
 }

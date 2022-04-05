@@ -4,7 +4,6 @@ import changeTheme from "./modules/theme.js";
 import home from "./modules/home.js";
 // SEARCH
 import { search, validateURL, validateEndpoint } from "./modules/search.js";
-import { getFetch } from "./modules/utilities.js";
 // ------------------------------------
 
 // DOMCONTENT

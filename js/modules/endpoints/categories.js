@@ -25,7 +25,7 @@ function createCategory(category){
     $a.setAttribute("class", "link-category");
     $a.setAttribute("target", "_blank");
     $a.textContent = category.name;
-    $a.href = document.getElementById("search-site").value;
+    $a.href =category.link;
     return $a;
 }
 export{

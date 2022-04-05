@@ -20,6 +20,24 @@ body.light .color-opacity:hover {
   color: #202020;
 }
 
+@-webkit-keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes opacity {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -79,7 +97,7 @@ body a, body #search-site {
 
 body .header,
 body .aside,
-body .main .post, body .main-section, body .main-content-categories .link-category,
+body .main .post, body .main-section, body .main-content-categories .link-category, body .main-content-tags .link-tag,
 body .footer {
   background: #252525;
 }
@@ -108,7 +126,7 @@ body.light a, body.light #search-site {
 
 body.light .header,
 body.light .aside,
-body.light .main .post, body.light .main-section, body.light .main-content-categories .link-category,
+body.light .main .post, body.light .main-section, body.light .main-content-categories .link-category, body.light .main-content-tags .link-tag,
 body.light .footer {
   background: #eee;
 }
@@ -145,6 +163,9 @@ body.light .main .post-details {
           flex-flow: row nowrap;
   -webkit-box-shadow: 0px 1px 3px rgba(20, 20, 20, 0.055);
           box-shadow: 0px 1px 3px rgba(20, 20, 20, 0.055);
+  opacity: 0;
+  -webkit-animation: opacity 500ms ease-in 0s 1 normal forwards;
+          animation: opacity 500ms ease-in 0s 1 normal forwards;
 }
 
 .header .header-logo {
@@ -283,6 +304,9 @@ body.light .main .post-details {
   row-gap: 2rem;
   -webkit-box-shadow: 1px 1px 3px rgba(20, 20, 20, 0.055), -1px -1px 3px rgba(20, 20, 20, 0.055), -1px 1px 3px rgba(20, 20, 20, 0.055), 1px -1px 3px rgba(20, 20, 20, 0.055);
           box-shadow: 1px 1px 3px rgba(20, 20, 20, 0.055), -1px -1px 3px rgba(20, 20, 20, 0.055), -1px 1px 3px rgba(20, 20, 20, 0.055), 1px -1px 3px rgba(20, 20, 20, 0.055);
+  opacity: 0;
+  -webkit-animation: opacity 500ms ease-in 0s 1 normal forwards;
+          animation: opacity 500ms ease-in 0s 1 normal forwards;
 }
 
 .main .main-section .section-title {
@@ -340,7 +364,7 @@ body.light .main .post-details {
   gap: 3rem;
 }
 
-.main-content-categories {
+.main-content-categories, .main-content-tags {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -356,14 +380,11 @@ body.light .main .post-details {
           flex-flow: row wrap;
 }
 
-.main-content-categories .a {
+.main-content-categories a, .main-content-tags a {
   padding: 1rem 2rem;
-  -webkit-transition: all 200ms ease;
-  transition: all 200ms ease;
-}
-
-.main-content-categories .a:hover {
-  color: #bd0945;
+  opacity: 0;
+  -webkit-animation: opacity 500ms ease-in 0s 1 normal forwards;
+          animation: opacity 500ms ease-in 0s 1 normal forwards;
 }
 
 .main .post {
@@ -388,6 +409,9 @@ body.light .main .post-details {
   font-size: 1.2rem;
   -webkit-box-shadow: 1px 1px 3px rgba(20, 20, 20, 0.055), -1px -1px 3px rgba(20, 20, 20, 0.055), -1px 1px 3px rgba(20, 20, 20, 0.055), 1px -1px 3px rgba(20, 20, 20, 0.055);
           box-shadow: 1px 1px 3px rgba(20, 20, 20, 0.055), -1px -1px 3px rgba(20, 20, 20, 0.055), -1px 1px 3px rgba(20, 20, 20, 0.055), 1px -1px 3px rgba(20, 20, 20, 0.055);
+  opacity: 0;
+  -webkit-animation: opacity 500ms ease-in 0s 1 normal forwards;
+          animation: opacity 500ms ease-in 0s 1 normal forwards;
 }
 
 .main .post picture {
@@ -556,6 +580,9 @@ body.light .main .post-details {
   font-size: 1.2rem;
   -webkit-box-shadow: 0px -1px 3px rgba(20, 20, 20, 0.055);
           box-shadow: 0px -1px 3px rgba(20, 20, 20, 0.055);
+  opacity: 0;
+  -webkit-animation: opacity 500ms ease-in 0s 1 normal forwards;
+          animation: opacity 500ms ease-in 0s 1 normal forwards;
 }
 
 .footer a {
