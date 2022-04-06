@@ -8,16 +8,11 @@
 .aside-search
     +flex(center, center, column nowrap)
     row-gap: 1rem
-    #search-site, #search-endpoint
+    #search-site
         background: none
         border-radius: 20px
         border: solid $color_primary 1px
-    #search-endpoint
-        appearance: none
-        cursor: pointer
-        &::-ms-expand
-            display: none
-#search-site, #search-endpoint, .aside-search-btn
+#search-site, .aside-search-btn
     color: $white_1
     width: 32rem
     padding: 0.75rem 0rem

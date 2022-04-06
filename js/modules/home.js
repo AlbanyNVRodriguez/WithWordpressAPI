@@ -1,8 +1,7 @@
 // HOME
 export default function home(){
     let $main = document.querySelector(".main");
-    document.getElementById("search-site").value = "",
-    document.getElementById("search-endpoint").value = "";
+    document.getElementById("search-site").value = "";
     let section_1 = sectionExamplesPages(),
     section_2 = sectionEndponits(),
     fragment = document.createDocumentFragment();

@@ -1,19 +1,29 @@
-import { allPosts } from "./endpoints/posts.js";
-import { allCategories } from "./endpoints/categories.js";
-import { allTags } from "./endpoints/tags.js";
+import { addPosts, loadMorePostAtEndOfScroll } from "./endpoints/posts.js";
+import { addCategories } from "./endpoints/categories.js";
+import { addTags } from "./endpoints/tags.js";
+import { getFetch, addTitleInMain, addContentInMain, addLoaderInMain } from "./utilities.js";
 
-function search(url, endpoint){
-    switch(endpoint){
-        case "posts":
-            allPosts(url);
-            break;
-        case "categories":
-            allCategories(url);
-            break;
-        case "tags":
-            allTags(url);
-            break;
-    }
+async function search(url){
+    document.removeEventListener("scroll",loadMorePostAtEndOfScroll);
+
+    let page = 1;
+    document.querySelector(".main").innerHTML = "";
+
+    addTitleInMain(url);
+    addContentInMain("posts");
+    addLoaderInMain();
+
+    let site = await getFetch(`${url}/wp-json`);
+    let posts = await getFetch(`${url}/wp-json/wp/v2/posts?_embed&${page}&per_page=8`);
+    let categories = await getFetch(`${url}/wp-json/wp/v2/categories`);
+    let tags = await getFetch(`${url}/wp-json/wp/v2/tags`);
+
+    document.querySelector(".loader").style.display = "none";
+    console.log(tags)
+    addCategories(categories);
+    addTags(tags);
+    addPosts(posts);
+    loadMorePostAtEndOfScroll(url, page);
 }
 // VALIDATE SITE
 function validateURL($site){
@@ -22,13 +32,7 @@ function validateURL($site){
     }
     return false;
 }
-// VALIDATE ENDPOINT
-function validateEndpoint($endpoint){
-    let endpoints = ["posts", "categories", "tags"];
-    return endpoints.includes($endpoint)? $endpoint : false;
-}
 export {
     search,
-    validateURL,
-    validateEndpoint
+    validateURL
 }

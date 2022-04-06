@@ -1,23 +1,19 @@
-import { getFetch, addTitleInMain, addContentInMain, addLoaderInMain } from "../utilities.js";
-
-// ALL CATEGORIES
-async function allCategories(url){
-    document.querySelector(".main").innerHTML = "";
-    addTitleInMain("All Categories");
-    addContentInMain("categories");
-    addLoaderInMain();
-    let categories = await getFetch(`${url}/wp-json/wp/v2/categories`);
-    document.querySelector(".loader").style.display = "none";
-    renderCategoriesInContent(categories);
+// ADD CATEGORIES IN CONTENT
+function addCategories(res){
+    let $main = document.querySelector(".main-content-posts");
+    let $divCategories = document.createElement("DIV");
+    $divCategories.setAttribute("class", "content-categories");
+    $divCategories.appendChild(categories(res));
+    $main.appendChild($divCategories);
 }
-// RENDER CATEGORIES IN CONTENT
-function renderCategoriesInContent(categories){
+// CATEGORIES 
+function categories(categories){
     let fragment = document.createDocumentFragment();
     categories.forEach(category => {
         let $category = createCategory(category);
         fragment.appendChild($category);
     });
-    document.querySelector(".main-content").appendChild(fragment);
+    return fragment;
 }
 // CREATE CATEGORY
 function createCategory(category){
@@ -25,9 +21,9 @@ function createCategory(category){
     $a.setAttribute("class", "link-category");
     $a.setAttribute("target", "_blank");
     $a.textContent = category.name;
-    $a.href =category.link;
+    $a.href = category.link;
     return $a;
 }
 export{
-    allCategories
+    addCategories
 }

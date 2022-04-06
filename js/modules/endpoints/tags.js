@@ -1,33 +1,29 @@
-import { getFetch, addTitleInMain, addContentInMain, addLoaderInMain } from "../utilities.js";
-
-// ALL TAGS
-async function allTags(url){
-    document.querySelector(".main").innerHTML = "";
-    addTitleInMain("All Tags");
-    addContentInMain("tags");
-    addLoaderInMain();
-    let tags = await getFetch(`${url}/wp-json/wp/v2/tags`);
-    document.querySelector(".loader").style.display = "none";
-    renderTagsInContent(tags);
+// ADD TAGS IN CONTENT
+function addTags(res){
+    let $main = document.querySelector(".main-content-posts");
+    let $divTags = document.createElement("DIV");
+    $divTags.setAttribute("class", "content-tags");
+    $divTags.appendChild(tags(res));
+    $main.appendChild($divTags);
 }
-// RENDER TAGS IN CONTENT
-function renderTagsInContent(tags){
+//  TAGS
+function tags(tags){
     let fragment = document.createDocumentFragment();
     tags.forEach(tag => {
         let $tag = createTag(tag);
         fragment.appendChild($tag);
     });
-    document.querySelector(".main-content").appendChild(fragment);
+    return fragment;
 }
 // CREATE TAG
 function createTag(tag){
     let $a = document.createElement("a");
     $a.setAttribute("class", "link-tag");
     $a.setAttribute("target", "_blank");
-    $a.textContent = tag.slug;
+    $a.textContent = tag.name;
     $a.href = tag.link;
     return $a;
 }
 export{
-    allTags
+    addTags
 }

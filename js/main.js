@@ -3,7 +3,7 @@ import changeTheme from "./modules/theme.js";
 // HOME 
 import home from "./modules/home.js";
 // SEARCH
-import { search, validateURL, validateEndpoint } from "./modules/search.js";
+import { search, validateURL } from "./modules/search.js";
 // ------------------------------------
 
 // DOMCONTENT
@@ -15,27 +15,22 @@ document.addEventListener("DOMContentLoaded", async function(){
         if(e.target.matches(".header .header-logo") || e.target.matches(".header .header-logo>*")) home();
         // CHANGE THEME
         if(e.target.matches(".header-theme")) changeTheme();
-        // SEARCH ENDPOINT SITE
+        // SEARCH SITE
         if(e.target.matches(".aside-search-btn")){
-            let url = document.getElementById("search-site").value,
-            endpoint = document.getElementById("search-endpoint").value;
+            let url = document.getElementById("search-site").value;
             url = validateURL(url);
-            endpoint = validateEndpoint(endpoint);
-            if(url && endpoint){
-                search(url, endpoint);
+            if(url){
+                search(url);
             }
         }
         // DATA PETITION AUTOMATIC
         if(e.target.matches("a[data-petition]")){
             e.preventDefault();
-            let url = e.target.href,
-            endpoint = "posts";
+            let url = e.target.href;
             url = validateURL(url);
-            endpoint = validateEndpoint(endpoint);
-            if(url && endpoint){
-                search(url, endpoint);
-                document.getElementById("search-site").value = url;
-                document.getElementById("search-endpoint").value = endpoint;
+            if(url){
+                search(url);
+                document.getElementById("search-site").value = "";
             }
         } 
     });

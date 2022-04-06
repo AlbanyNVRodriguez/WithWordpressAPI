@@ -9,7 +9,7 @@ function getFetch(url){
 }
 // ADD TITLE IN MAIN
 function addTitleInMain(text){
-    let $title = document.createElement("p");
+    let $title = document.createElement("h4");
     $title.textContent = text;
     $title.setAttribute("class", "main-title color-opacity");
     document.querySelector(".main").appendChild($title);
